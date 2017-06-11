@@ -38,7 +38,7 @@ Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c46
 
 #### 5. Install Karma test runner
 
-    $ npm install --save-dev karma karma-cli karma-jasmine karma-phantomjs-launcher
+    $ npm install --save-dev karma karma-jasmine karma-phantomjs-launcher
     $ npm install -g karma-cli  
     $ karma init
 
