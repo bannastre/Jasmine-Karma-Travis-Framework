@@ -5,11 +5,12 @@ Created using the walkthrough by Bryan Braun, here:
 https://www.bryanbraun.com/2015/05/17/setting-up-automated-testing-for-a-small-client-side-javascript-project/
 
 
-## Steps to follow:
+### Getting started:   
 
-#### 1. Package.json
+Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c465c) here with a sample of the files I put together using the walkthrough 
 
-    ```
+#### 1. Create a 'package.json' file that contains the following:
+
     {
     "name": "project-name",
       "description": "My Project&#39;s Description",
@@ -17,30 +18,43 @@ https://www.bryanbraun.com/2015/05/17/setting-up-automated-testing-for-a-small-c
       "devDependencies": {
         "jasmine-core": "*"
       }
-    }```  
+    }
 
-#### 2. npm install  
+#### 2. initialise the package modules using npm
 
-    ```$ npm install```
-
-
-#### 3. Add Jasmine stand-alone file  
-- Get the latest file [here]()
-- run ```$unzip unzip jasmine-standalone-{version}.zip```
+    $ npm install
 
 
-#### 4. PhantomJS  
+#### 3. Download and add a Jasmine stand-alone file to the project folder    
 
-    ```$ brew install phantomjs```
+    $ unzip jasmine-standalone-{version}.zip
 
-#### 5. Karma
+ - Get the latest [version](https://jasmine.github.io/pages/getting_started.html)  
 
-    ```$ npm install --save-dev karma karma-cli karma-jasmine karma-phantomjs-launcher```  
 
-    ```$ karma init```
+#### 4. Install PhantomJS browser webkit to test against   
+
+    $ brew install phantomjs
+
+#### 5. Install Karma test runner
+
+    $ npm install --save-dev karma karma-cli karma-jasmine karma-phantomjs-launcher
+    $ npm install -g karma-cli  
+    $ karma init
+
+- Karma config:  
+
+      files: [
+        "src/*.js",
+        "spec/*.js"
+      ],
+      browsers: ['PhantomJS'],  
+
+- Karma [docs](http://karma-runner.github.io/1.0/index.html)
 
 #### 6. Travis
-    Add the following to ```.travis.yml``` file:
+
+- Add the following to .travis.yml file:
 
     ```
     language: node_js
