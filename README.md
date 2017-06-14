@@ -25,10 +25,15 @@ Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c46
     $ npm install
 
 
-#### 3. Download and add a Jasmine stand-alone file to the project folder    
+#### 3. Download and add a Jasmine stand-alone file to the project folder   
 
     $ unzip jasmine-standalone-{version}.zip
 
+##### or install globally and initialize the project you are working on:
+    
+    $ npm install -g jasmine
+    $ jasmine init 
+    
  - Get the latest [version](https://jasmine.github.io/pages/getting_started.html)  
 
 
@@ -38,17 +43,34 @@ Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c46
 
 #### 5. Install Karma test runner
 
-    $ npm install --save-dev karma karma-jasmine karma-phantomjs-launcher
-    $ npm install -g karma-cli  
+    $ npm install --save-dev karma karma-jasmine karma-phantomjs-launcher karma-coverage karma-cli
     $ karma init
 
-- Karma config:  
+  ##### Karma config (karma.conf.js):  
 
       files: [
         "src/*.js",
         "spec/*.js"
       ],
+      
       browsers: ['PhantomJS'],  
+      
+          preprocessors: {
+      'src/*.js': 'coverage'
+      },
+
+      plugins: [
+        'karma-jasmine',
+        'karma-phantomjs-launcher',
+        'karma-coverage'
+      ],
+      
+      reporters: ['progress', 'coverage'],
+      
+      coverageReporter: {
+        type: 'text',
+        dir: 'coverage/'
+      },
 
 - Karma [docs](http://karma-runner.github.io/1.0/index.html)
 
