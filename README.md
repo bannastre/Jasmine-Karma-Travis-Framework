@@ -43,7 +43,7 @@ Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c46
 
 #### 5. Install Karma test runner
 
-    $ npm install --save-dev karma karma-jasmine karma-phantomjs-launcher karma-coverage karma-cli
+    $ npm install --save-dev karma karma-jasmine karma-jasmine-jquery karma-phantomjs-launcher karma-coverage karma-cli
     $ karma init
 
   ##### Karma config (karma.conf.js):  
