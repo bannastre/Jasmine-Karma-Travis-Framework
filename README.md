@@ -88,13 +88,14 @@ Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c46
   devDependencies should now look like this:
   
         "devDependencies": {
-           "jasmine-core": "*",
-           "karma": "^1.7.0",
-           "karma-coverage": "^0.1.5",
-           "karma-jasmine": "^1.1.0",
-           "karma-phantomjs-launcher": "^1.0.4",
-           "nyc": "^11.0.2"
-         }
+          "jasmine-core": "*",
+          "karma": "^1.7.0",
+          "karma-cli": "^1.0.1",
+          "karma-coverage": "^1.1.1",
+          "karma-jasmine": "^1.1.0",
+          "karma-jasmine-jquery": "^0.1.1",
+          "karma-phantomjs-launcher": "^1.0.4"
+        }
          
 #### 7. Re-initialise the package modules using npm
 
