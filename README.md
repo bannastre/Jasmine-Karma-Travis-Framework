@@ -23,8 +23,7 @@ Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c46
 #### 2. initialise the package modules using npm
 
     $ npm install
-
-
+    
 #### 3. Download and add a Jasmine stand-alone file to the project folder   
 
     $ unzip jasmine-standalone-{version}.zip
@@ -47,34 +46,61 @@ Here's a [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c46
     $ karma init
 
   ##### Karma config (karma.conf.js):  
+  
+  Have a look at the [Gist](https://gist.github.com/bannastre/f470ad091849239dd7e38680197c465c) for a complete config file: 
 
-      files: [
-        "src/*.js",
-        "spec/*.js"
-      ],
-      
-      browsers: ['PhantomJS'],  
-      
-          preprocessors: {
-      'src/*.js': 'coverage'
-      },
-
-      plugins: [
-        'karma-jasmine',
-        'karma-phantomjs-launcher',
-        'karma-coverage'
-      ],
-      
-      reporters: ['progress', 'coverage'],
-      
-      coverageReporter: {
-        type: 'text',
-        dir: 'coverage/'
-      },
+        frameworks: [
+          'jasmine'
+        ],
+        files: [
+          'src/*.js',
+          'spec/*.js'
+        ],
+        exclude: [
+          'src/interface.js'
+        ],
+        preprocessors: {
+          'src/*.js': 'coverage'
+        },
+        plugins: [
+          'karma-jasmine',
+          'karma-phantomjs-launcher',
+          'karma-coverage'
+        ],
+        reporters: [
+          'progress',
+          'coverage'
+        ],
+        coverageReporter: {
+          type: 'text',
+          dir: 'coverage/'
+        },
+        browsers: ['PhantomJS'],
 
 - Karma [docs](http://karma-runner.github.io/1.0/index.html)
 
-#### 6. Travis
+#### 6. Add the test scripts to package.json
+
+      "scripts": {
+        "test": "karma start karma.conf.js --single-run"
+      },
+      
+  devDependencies should now look like this:
+  
+        "devDependencies": {
+           "jasmine-core": "*",
+           "karma": "^1.7.0",
+           "karma-coverage": "^0.1.5",
+           "karma-jasmine": "^1.1.0",
+           "karma-phantomjs-launcher": "^1.0.4",
+           "nyc": "^11.0.2"
+         }
+         
+#### 7. Re-initialise the package modules using npm
+
+    $ npm install
+
+#### 8. Travis
 
 - Add the following to .travis.yml file:
 
